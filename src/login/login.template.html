@@ -1,35 +1,48 @@
-<nav class="navbar navbar-inverse tet">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="image/logo.png"></a>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="routing.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse tet">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="image/logo.png"></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <form>
+                    <p class="text-danger">Connecter-vous pour accèder au gestion des écolages</p> <br>
+                    <label>
+                        <p class="text-muted"> Veuillez entrez votre identifiant pour accèder à votre Plateforme</p>
+                    </label>
+                    <div class="form-group">
+                        <label>
+                            <p class="text-primary">Identifiant</p>
+                        </label>
+                        <input type="text" class="form-control" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <p class="text-primary">Mot de passe</p>
+                        </label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn primary" value="Connecter">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</nav>
-
-<div class="container">
-
-    <div class="row">
-
-        <div class="col-lg-5">
-
-            <form>
-                <p class="text-danger">Connecter-vous pour accèder au gestion des écolages</p> <br>
-                <label><p class="text-muted"> Veuillez entrez votre identifiant pour accèder à votre Plateforme</p></label>
-                <div class="form-group">
-                    <label><p class="text-primary">Identifiant</p></label>
-                    <input type="text" class="form-control" name="email">
-                </div>
-
-
-
-                <div class="form-group">
-                    <label><p class="text-primary">Mot de passe</p></label>
-                    <input type="password" class="form-control" name="password">
-                </div>
-
-
-                <div class="form-group">
-                    <input type="submit" class="btn btn primary" value="Connecter">
-                </div>
-        </div>
-        </form>
+</body>
+</html>

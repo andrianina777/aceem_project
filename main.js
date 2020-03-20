@@ -4,13 +4,40 @@ const path = require("path");
 const exec = require("child_process").exec;
 
 /*======================NODE=====================*/
+const express = require('express');
+const sqlite3 = require('sqlite3');
+const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const urlC = require('./config/url');
 
+const db = require('./config/database');
+const appE = new express();
 
+appE.use(cors({origin: urlC.clientUrl}));
+appE.use(bodyParser.json({limit: '50mb'}));
+appE.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
+appE.use("/assets", express.static("./src/assets"));
+appE.use("/", require('./router/home.js'));
 
+console.log('/*----------------------------------------------------------*/');
+db.authenticate()
+    .then(() => console.log('Database connected ...'))
+    .catch(err => console.log('Error: ' + err));
 
+// Object.keys(db).forEach(modelName => {
+//     if (db[modelName].associate) {
+//       db[modelName].associate(db);
+//     }
+// });
+// db.sync({
+//     force: false
+// }, () => console.log("[*] DB Sync complete"));
 
+appE.listen(urlC.PORT, console.log(`Server connected (port: ${urlC.PORT})`));
 
+/*======================NODE=====================*/
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -28,13 +55,8 @@ function createWindow() {
     });
 
     // and load the index.html of the app.
-    win.loadURL(
-        url.format({
-            pathname: path.join(__dirname, `/src/index.html`),
-            protocol: "file:",
-            slashes: true
-        })
-    );
+    
+    win.loadURL(`http://localhost:${urlC.PORT}`);
 
     // Open the DevTools.
     // win.webContents.openDevTools();
