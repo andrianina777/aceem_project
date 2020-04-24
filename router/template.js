@@ -4,11 +4,9 @@ const fs = require('fs');
 const router = express.Router();
 const urlConfig = require('../config/url');
 
-router.get("/", function(req, res) {
-  res.sendFile(path.resolve('src/index.html'));
+router.get("/content", function(req, res) {
+  res.sendFile(path.resolve('src/template/content.html'));
 });
-router.get("/dashboard", function(req, res) {
-  res.sendFile(path.resolve('src/template/dashboard.html'));
-});
+
 
 module.exports = router;
